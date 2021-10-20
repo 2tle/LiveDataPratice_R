@@ -13,10 +13,13 @@ class MainActivity : AppCompatActivity() {
     private val secondFragment by lazy { SecondFragment() }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
-        binding.lifecycleOwner = this
+
+
         changeFragment(firstFragment)
-        binding.bottomNav.setOnItemSelectedListener {
+        findViewById<BottomNavigationView>(R.id.bottomNav).setOnItemSelectedListener {
             when(it.itemId){
                 R.id.firstfm -> {
                     changeFragment(firstFragment)
